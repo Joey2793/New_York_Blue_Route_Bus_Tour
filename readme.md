@@ -13,10 +13,13 @@
 5. set up route and app.js
 </p>
 
-<h2>Open</p>
+<h2>Open</h2>
 <p>
+  
 1. use cmd locate to the web app file
+
 2. use the code "node app.js"
+
 3. open browser input "localhost:3000"
 </p>
 
