@@ -24,18 +24,7 @@
  	height: 20px;
  	width: 20px;
  }
- #query {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
-    background: white;
-    padding: 1em;
-  }
 
-  #query select {
-    font-size: 16px;
-  }
  </style>
   </head>
   
@@ -45,19 +34,11 @@
   	
     <div id="map" style="height: 800px;"></div>
     <div id="query">
-      <!-- <label>
-        POI
-        <select id="group">
-          
-          <option value="1">Any</option>
-          <option value="2">Bus</option>
-          <option value="3">Tour</option>
-        </select>
-      </label> -->
+    
     </div>
     </div>
     <script>
-      var wrldApiKey = "7f98674ce2a8c002cd2a0ab4f2929ef2";
+      var wrldApiKey = "your key code";
       var map = L.Wrld.map("map", wrldApiKey, {
         center: [40.7589, -73.9851],
         zoom: 13,
@@ -210,42 +191,9 @@
      marker23.bindPopup(customPopup23).openPopup();
 
 
-    //  var selectgroup = document.getElementById('group');
-    //  selectgroup.addEventListener('change', function () {
-       
-    //    if (selectgroup.value === '1'){
-    //     markergroup1.addTo(map); 
-    //     markergroup2.addTo(map); 
-    //      }
-
-       
-    //    if (selectgroup.value == '2'){
-    //       markergroup1.remove(map); 
-    //      }
-       
-    //    if (selectgroup.value == '3'){
-    //      markergroup2.remove(map); 
-    //    }
-    //  });
-    //var polylinePoints = [
-      //  [40.757228, -73.989793], 1
-     //  [40.752194, -73.993451], 3
-       //[40.759791, -73.987927],  4
-       //[40.761094, -73.983263], 5
-       //[40.755827, -73.986437], 6
-       //[40.754842, -73.984109], 7
-       //[40.752726, -73.977229], 8
-        //[40.755217, -73.97124], 9
-        // [40.77959, -73.961838], 10
-         //[40.772462, -73.967044], 11
-         //[40.768655, -73.969822], 12
-         // [40.764816, -73.974912], 13
-         // [40.767712, -73.98170], 14
-         //  [40.765521, -73.98003],15
-         //  [40.747165, -73.985504],18
-         //   [40.758709, -73.985367]36
-      //]; 
-      var polylinePoints = [
+   
+   
+     var polylinePoints = [
         [40.757228, -73.989793], 
         [40.759791, -73.987927],  
         [40.758709, -73.985367],
