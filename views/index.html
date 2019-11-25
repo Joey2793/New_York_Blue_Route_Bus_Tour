@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
+     <!--link href="../node_modules/leaflet-legend/leaflet-legend.css" rel="stylesheet" />
+		<script src="../node_modules/leaflet-legend/leaflet-legend.js"></script-->
+     <link href="https://cdn-webgl.wrld3d.com/wrldjs/addons/resources/latest/css/wrld.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/searchbar/v119/searchbar.js"></script>
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/latest/indoor_control.js"></script>
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/marker_controller/latest/marker_controller.js"></script>
+ <title>New York Blue Route Bus Tour</title>
+ <style>
+ 	.mypopup.leaflet-popup-content-wrapper{
+        background-color: gray;
+        opacity: 0.9;
+    }
+    .mypopup.leaflet-popup-tip {
+        color: red;
+ }
+ .img{
+ 	height: 20px;
+ 	width: 20px;
+ }
+ #query {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 1em;
+  }
+
+  #query select {
+    font-size: 16px;
+  }
+ </style>
+  </head>
+  
+  <body>
+  <div style="position: relative;">
+  	<div id="widget-container" class="wrld-widget-container"></div>
+  	
+    <div id="map" style="height: 800px;"></div>
+    <div id="query">
+      <!-- <label>
+        POI
+        <select id="group">
+          
+          <option value="1">Any</option>
+          <option value="2">Bus</option>
+          <option value="3">Tour</option>
+        </select>
+      </label> -->
+    </div>
+    </div>
+    <script>
+      var wrldApiKey = "7f98674ce2a8c002cd2a0ab4f2929ef2";
+      var map = L.Wrld.map("map", wrldApiKey, {
+        center: [40.7589, -73.9851],
+        zoom: 13,
+        indoorsEnabled: true
+      });
+
+
+
+	var indoorControl = new WrldIndoorControl("widget-container", map);
+	var markerController = new WrldMarkerController(map);
+  
+
+      // Markers must have unique ids
+      //markergroup1 = L.layerGroup();
+      var markerIds = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+      var marker0 = markerController.addMarker(markerIds[0], [40.757228, -73.989793], { iconKey: "bus" });
+      var marker1 = markerController.addMarker(markerIds[1], [40.752194, -73.993451], { iconKey: "bus" });
+      var marker2 = markerController.addMarker(markerIds[2], [40.759791, -73.987927], { iconKey: "bus" });
+      var marker3 = markerController.addMarker(markerIds[3], [40.761094, -73.983263], { iconKey: "bus" });
+      var marker4 = markerController.addMarker(markerIds[4], [40.755827, -73.986437], { iconKey: "bus" });
+      var marker5 = markerController.addMarker(markerIds[5], [40.754842, -73.984109], { iconKey: "bus" });
+      var marker6 = markerController.addMarker(markerIds[6], [40.752726, -73.977229], { iconKey: "bus" });
+      var marker7 = markerController.addMarker(markerIds[7], [40.755217, -73.97124], { iconKey: "bus" });
+      var marker8 = markerController.addMarker(markerIds[8], [40.77959, -73.961838], { iconKey: "bus" });
+      var marker9 = markerController.addMarker(markerIds[9], [40.772462, -73.967044], { iconKey: "bus" });
+      var marker10 = markerController.addMarker(markerIds[10], [40.768655, -73.969822], { iconKey: "bus" });
+      var marker11 = markerController.addMarker(markerIds[11], [40.764816, -73.974912], { iconKey: "bus" });
+      var marker12 = markerController.addMarker(markerIds[12], [40.767712, -73.98170], { iconKey: "bus" });
+      var marker13 = markerController.addMarker(markerIds[13], [40.765521, -73.98003], { iconKey: "bus" });
+      var marker14 = markerController.addMarker(markerIds[14], [40.748441, -73.985664], { iconKey: "bus" });
+      var marker15 = markerController.addMarker(markerIds[15], [40.758709, -73.985367], { iconKey: "bus" });
+      //markergroup2 = L.layerGroup();
+
+      
+        
+           
+      //landmark
+      //Rockefeller Center
+      var marker16 = markerController.addMarker(markerIds[16], [40.75861,-73.978209], { iconKey: "town_hall" });
+      //Radiator building
+     var marker17 = markerController.addMarker(markerIds[17], [40.752777,-73.983784], { iconKey: "town_hall" }); 
+     //time square
+     var marker18 = markerController.addMarker(markerIds[18], [40.7589, -73.9851], { iconKey: "park" });
+     //center park
+     var marker19 = markerController.addMarker(markerIds[19], [40.755355, -73.970634], { iconKey: "park" });
+     //frick collection
+     var marker20 = markerController.addMarker(markerIds[20], [40.771209, -73.967399], { iconKey: "art" });
+     //central zoo
+     var marker21 = markerController.addMarker(markerIds[21], [40.767778, -73.971833], { iconKey: "zoo" });
+     //THE METROPOLITAN MUSEUM OF ART 
+     var marker22 = markerController.addMarker(markerIds[22], [40.779437, -73.963244], { iconKey: "art" });
+     //empire building
+     var marker23 = markerController.addMarker(markerIds[23], [40.748441, -73.985664], { iconKey: "town_hall" });
+     
+
+      marker0.on("click", function(e) { markerController.selectMarker(marker0); });
+      marker1.on("click", function(e) { markerController.selectMarker(marker1); });
+      marker2.on("click", function(e) { markerController.selectMarker(marker2); });
+      marker3.on("click", function(e) { markerController.selectMarker(marker3); });
+      marker4.on("click", function(e) { markerController.selectMarker(marker4); });
+      marker5.on("click", function(e) { markerController.selectMarker(marker5); });
+      marker6.on("click", function(e) { markerController.selectMarker(marker6); });
+      marker7.on("click", function(e) { markerController.selectMarker(marker7); });
+      marker8.on("click", function(e) { markerController.selectMarker(marker8); });
+      marker9.on("click", function(e) { markerController.selectMarker(marker9); });
+      marker10.on("click", function(e) { markerController.selectMarker(marker10); });
+      marker11.on("click", function(e) { markerController.selectMarker(marker11); });
+     marker12.on("click", function(e) { markerController.selectMarker(marker12); });
+     marker13.on("click", function(e) { markerController.selectMarker(marker13); });
+     marker14.on("click", function(e) { markerController.selectMarker(marker14); });
+     marker15.on("click", function(e) { markerController.selectMarker(marker15); });
+
+
+     marker16.on("click", function(e) { markerController.selectMarker(marker16); });
+     marker17.on("click", function(e) { markerController.selectMarker(marker17); });
+     marker18.on("click", function(e) { markerController.selectMarker(marker18); });
+     marker19.on("click", function(e) { markerController.selectMarker(marker19); });
+     marker20.on("click", function(e) { markerController.selectMarker(marker20); });
+     marker21.on("click", function(e) { markerController.selectMarker(marker21); });
+     marker22.on("click", function(e) { markerController.selectMarker(marker22); });
+     marker23.on("click", function(e) { markerController.selectMarker(marker23); });
+
+     var customPopup0 = "<b>Times Square West</b><br/>First Bus: 8:05am	Last Bus:5:05pm";
+     var customPopup1 = "<b>Madison Square Garden</b><br/>First Bus: 8:16am	Last Bus:5:16pm";
+     var customPopup2 = "<b>Restaurant Row</b><br/>First Bus: 8:27am	Last Bus:5:27pm";
+     var customPopup3 = "<b>Times Square North</b><br/>First Bus: 8:31am	Last Bus:5:31pm";
+     var customPopup4 = "<b>Times Square East</b><br/>First Bus: 8:36am	Last Bus:5:36pm";
+     var customPopup5 = "<b>Bryant Park</b><br/>First Bus: 8:39am Last Bus:5:39pm";
+     var customPopup6 = "<b>Grand Central Terminal</b>First Bus: 8:44am Last Bus:5:44pm";
+     var customPopup7 = "<b>Midtown East</b><br/>First Bus: 8:54am  Last Bus:5:54pm";
+     var customPopup8 = "<b>The Metropolitan Museum of Art</b><br/>First Bus: 8:11am  Last Bus:6:11pm";
+     var customPopup9 = "<b>Frick Collection</b><br/>First Bus: 9:17am  Last Bus:6:17pm";
+     var customPopup10 = "<b>Central Park Zoo</b><br/>First Bus: 9:19am Last Bus:6:19pm";
+     var customPopup11 = "<b>The Plaza Hotel</b><br/>First Bus: 9:22am  Last Bus:6:22pm";
+     var customPopup12 = "<b>Colombus Circle</b><br/>First Bus: 9:25am  Last Bus:6:25pm";
+     var customPopup13 = "<b>Carnegie Hall</b><br/>First Bus: 9:29am  Last Bus:6:29pm";
+     var customPopup14 = "<b>Empire State Building / Korea Town</b><br/>First Bus: 8:13am Last Bus:5:13pm";
+     var customPopup15 = "<b>Broadway Theater District</b><br/>First Bus: 8:00am  Last Bus:5:00pm";
+
+  //Rockefeller Center
+
+    var customPopup16 = "<b>ROCKEFELLER CENTER</b><p><img src=“/rockefeller_center.jpg”/>Rockefeller Center is a large complex consisting of 19 commercial buildings covering 22 acres (89,000 m2) between 48thand 51st Streets, facing Fifth Avenue, in New York City. Commissioned by the Rockefeller family, it is located in the center of Midtown Manhattan. The 14 original Art Deco buildings span the area between Fifth and Sixth Avenues, split by a large sunken square and a private street called Rockefeller Plaza. Five International Style buildings, built later, are located on the west side of Sixth Avenue and at the head of Rockefeller Plaza</p>";
+     //Radiator building
+    var customPopup17 = "<b>RADIATOR BUILDING</b><p>The American Radiator Building (since renamed to the American Standard Building) is a landmark skyscraper located at 40 West 40th Street, in midtown Manhattan, New York City. It was conceived by the architects John Howells and Raymond Hood, and built in 1924 for the American Radiator Company</p>";
+
+//time square
+    var customPopup18 = "<b>Time square</b><p>Times Square is a major commercial intersection, tourist destination, entertainment center and neighborhood in the Midtown Manhattan section of New York City at the junction of Broadway and Seventh Avenue. It stretches from West 42nd to West 47th Streets.Brightly adorned with billboards and advertisements, Times Square is sometimes referred to as &quotThe Crossroads of the World&quot, &quotThe Center of the Universe&quot, &quotthe heart of The Great White Way&quot, and the &quotheart of the world&quot. One of the world's busiest pedestrian areas,it is also the hub of the Broadway Theater District and a major center of the world's entertainment industry. Times Square is one of the world's most visited tourist attractions, drawing an estimated 50 million visitors annually. Approximately 330,000 people pass through Times Square daily, many of them tourists,while over 460,000 pedestrians walk through Times Square on its busiest days</p>";
+
+//central park
+    var customPopup19 = "<b>CENTRAL PARK</b><p>Central Park is an urban park in Manhattan, New York City, U.S. state of New York. It comprises 843 acres (341 ha) between the Upper West Side and Upper East Side, roughly bounded by Fifth Avenue on the east, Central Park West (Eighth Avenue) on the west, Central Park South (59th Street) on the south, and Central Park North (110th Street) on the north. Central Park is the most visited urban park in the United States, with 40 million visitors in 2013, and one of the most filmed locations in the world.</p>";
+
+
+//frick collection
+    var customPopup20 = "<b>THE FRICK COLLECTION</b><p>The Frick Collection is an art museum located in the Henry Clay Frick House on the Upper East Side in Manhattan, New York City at 1 East 70th Street, at the northeast corner with Fifth Avenue. It houses the collection of industrialist Henry Clay Frick (1849–1919).</p>";
+
+
+//central zoo
+    var customPopup21 = "<b>CENTRAL PARK ZOO </b><p>• the zoo began in the 1860s as a menagerie, thus making it the first official zoo to open in New York. The zoo was modified in 1934, with the addition of many new buildings ranged in a quadrangle around the sea lion pool. (The zoo from this era has been commonly known as the &quot 1934 Zoo &quot or &quot Robert Moses Zoo &quot.) The zoo was renovated in the mid-1980s and reopened in 1988, replacing cages with naturalistic environments.</p>";
+
+//mt
+    var customPopup22 = "<b> THE METROPOLITAN MUSEUM OF ART</b><br/><p>The Metropolitan Museum of Art of New York, colloquially &quot the Met&quot, is the largest art museum in the United States. With 7.06 million visitors in 2016, it was the third most visited art museum in the world, and the fifth most visited museum of any kind. Its permanent collection contains over two million works, divided among seventeen curatorial departments. The main building, on the eastern edge of Central Park along Manhattan's Museum Mile, is by area one of the world's largest art galleries. A much smaller second location, The Cloisters at Fort Tryon Park in Upper Manhattan, contains an extensive collection of art, architecture, and artifacts from Medieval Europe. On March 18, 2016, the museum opened the Met Breuer museum at Madison Avenue in the Upper East Side; it extends the museum's modern and contemporary art program.</p>";
+//empire building
+
+    var customPopup23 = "<b>EMPIRE STATE BUILDING</b><p>The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan, New York City. Designed by Shreve, Lamb & Harmon and completed in 1931, the building has a roof height of 1,250 feet (380 m) and stands a total of 1,454 feet (443.2 m) tall, including its antenna</p>";
+
+
+     marker0.bindPopup(customPopup0).openPopup();
+     marker1.bindPopup(customPopup1).openPopup();
+     marker2.bindPopup(customPopup2).openPopup();
+     marker3.bindPopup(customPopup3).openPopup();
+     marker4.bindPopup(customPopup4).openPopup();
+     marker5.bindPopup(customPopup5).openPopup();
+     marker6.bindPopup(customPopup6).openPopup();
+     marker7.bindPopup(customPopup7).openPopup();
+     marker8.bindPopup(customPopup8).openPopup();
+     marker9.bindPopup(customPopup9).openPopup();
+     marker10.bindPopup(customPopup10).openPopup();
+     marker11.bindPopup(customPopup11).openPopup();
+     marker12.bindPopup(customPopup12).openPopup();
+     marker13.bindPopup(customPopup13).openPopup();
+     marker14.bindPopup(customPopup14).openPopup();
+     marker15.bindPopup(customPopup15).openPopup();
+     marker16.bindPopup(customPopup16).openPopup();
+     marker17.bindPopup(customPopup17).openPopup();
+     marker18.bindPopup(customPopup18).openPopup();
+     marker19.bindPopup(customPopup19).openPopup();
+     marker20.bindPopup(customPopup20).openPopup();
+     marker21.bindPopup(customPopup21).openPopup();
+     marker22.bindPopup(customPopup22).openPopup();
+     marker23.bindPopup(customPopup23).openPopup();
+
+
+    //  var selectgroup = document.getElementById('group');
+    //  selectgroup.addEventListener('change', function () {
+       
+    //    if (selectgroup.value === '1'){
+    //     markergroup1.addTo(map); 
+    //     markergroup2.addTo(map); 
+    //      }
+
+       
+    //    if (selectgroup.value == '2'){
+    //       markergroup1.remove(map); 
+    //      }
+       
+    //    if (selectgroup.value == '3'){
+    //      markergroup2.remove(map); 
+    //    }
+    //  });
+    //var polylinePoints = [
+      //  [40.757228, -73.989793], 1
+     //  [40.752194, -73.993451], 3
+       //[40.759791, -73.987927],  4
+       //[40.761094, -73.983263], 5
+       //[40.755827, -73.986437], 6
+       //[40.754842, -73.984109], 7
+       //[40.752726, -73.977229], 8
+        //[40.755217, -73.97124], 9
+        // [40.77959, -73.961838], 10
+         //[40.772462, -73.967044], 11
+         //[40.768655, -73.969822], 12
+         // [40.764816, -73.974912], 13
+         // [40.767712, -73.98170], 14
+         //  [40.765521, -73.98003],15
+         //  [40.747165, -73.985504],18
+         //   [40.758709, -73.985367]36
+      //]; 
+      var polylinePoints = [
+        [40.757228, -73.989793], 
+        [40.759791, -73.987927],  
+        [40.758709, -73.985367],
+       [40.755827, -73.986437], 
+       [40.754842, -73.984109], 
+       [40.752726, -73.977229], 
+       [40.750806,-73.974486],
+        [40.755217, -73.97124], 
+        [40.75723 , -73.976045],
+         [40.780862 ,-73.958805],
+         [40.77959, -73.961838], 
+         [40.772462, -73.967044], 
+         [40.764305,-73.973005],
+         [40.764816, -73.974912], 
+          [40.767712, -73.98170], 
+           [40.765521, -73.98003],
+           [40.761094, -73.983263],
+            [40.758709, -73.985367]
+      ];  
+      var polylinePoints1 = 
+     [
+     		[40.757228, -73.989793], 
+     		[40.759791, -73.987927], 
+     		[40.758709, -73.985367],
+     		[40.755827, -73.986437], 
+     		[40.749101 ,-73.992006],
+     		[40.75028 ,-73.994832],
+     		//[40.7502215,-73.9963032],
+     		[40.752194, -73.993451],
+            [40.748441, -73.985664]
+
+     ];
+      
+      var polyline = L.polyline(polylinePoints).addTo(map); 
+     var polyline = L.polyline(polylinePoints1).addTo(map); 
+     
+
+
+// Add a marker controller to draw styled markers on the map
+//var markerController = new WrldMarkerController(map, { searchbar: searchbar });
+
+    </script>
+
+  
+  </body>
+</html>
