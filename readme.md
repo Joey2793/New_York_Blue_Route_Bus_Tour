@@ -25,9 +25,10 @@
 
 <h2>Create</h2>
 <p>
+
 1. create map and load 3d layer
   
-2. geocode the bus station
+2. geocode the bus stations
 
-3. add polyline to connection those station
+3. add polyline to connection those stations
 <p>
