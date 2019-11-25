@@ -1,4 +1,6 @@
-<img src="https://github.com/Joey2793/bus_line/blob/master/img/screen.png"/>
+<img src="https://github.com/Joey2793/bus_line/blob/master/img/screen.png">
+<img src = "https://github.com/Joey2793/New_York_Blue_Route_Bus_Tour/blob/master/img/capture3.png">
+<img src = "https://github.com/Joey2793/New_York_Blue_Route_Bus_Tour/blob/master/img/capture2.png">
 <h2>Setup</h2>
 <p>
 
