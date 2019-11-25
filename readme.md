@@ -1,4 +1,6 @@
-//how to set up server
+<img src="https://github.com/Joey2793/bus_line/blob/master/img/screen.png"/>
+<h2>Setup</h2>
+<p>
 
 1. Download Node.js
 
@@ -9,14 +11,18 @@
 4. install express
 
 5. set up route and app.js
+</p>
 
-//how to load web app
+<h2>Open</p>
+<p>
 1. use cmd locate to the web app file
 2. use the code "node app.js"
 3. open browser input "localhost:3000"
+</p>
 
-
-//how to create bus route app
+<h2>Create</h2>
+<p>
 1. create map and load 3d layer
 2. geocode the bus station
 3. add polyline to connection those station
+<p>
